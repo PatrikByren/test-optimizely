@@ -1,4 +1,5 @@
 ﻿using EPiServer.Web;
+using Nackademin23.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
 using static Nackademin23.Globals;
 
@@ -22,27 +23,7 @@ namespace Nackademin23.Models.Pages
 
         [Display(GroupName = SystemTabNames.Content,
             Order = 20)]
-        [AllowedTypes(typeof(CarouselPage))]
+        [AllowedTypes(typeof(CarouselPage), typeof(CarouselBlock))]
         public virtual ContentArea Carousel { get; set; }
-        //[Display(GroupName = SystemTabNames.Content,
-        //    Order =10,
-        //    Name = "Image",
-        //    Description = "This is an Image")]
-        //[UIHint(UIHint.Image)]
-        //public virtual ContentReference Image { get; set; }
-        //[Display(GroupName = SystemTabNames.Content,
-        //    Order =20)]
-        //public virtual string Heading { get; set; } = string.Empty;
-
-        //[Display(GroupName = SystemTabNames.Content,
-        //Order = 30)]
-        //[UIHint(UIHint.Textarea)]
-        //public virtual string Preamble { get; set; } = string.Empty;
-        //[Display(GroupName = SystemTabNames.Content,
-        //Order = 40)]
-        //public virtual XhtmlString MainBody { get; set; }
-        //[ScaffoldColumn(false)]
-        //public override CategoryList Category { get; set; }
-
     }
 }

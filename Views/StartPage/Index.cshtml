@@ -4,7 +4,11 @@
 
 @model StartPageViewModel
 
-@await Component.InvokeAsync("Carousel")
+@Html.PropertyFor(x => x.CurrentPage.Carousel)
+
+
+
+@*  @await Component.InvokeAsync("Carousel")  *@
 
 @* <h1>@Model.CurrentPage.Heading</h1>
 
