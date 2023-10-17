@@ -1,0 +1,44 @@
+﻿﻿@using Nackademin23.Components.Carousel
+@using EPiServer.Web.Mvc.Html
+
+@model CarouselViewModel
+
+<style type="text/css">
+    img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+</style>
+
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @foreach (var item in Model.Pages)
+        {
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="@item.DataBsSlideTo" class="@item.Active" aria-current="@item.AriaCurrent" aria-label="@item.AriaLabel"></button>
+        }
+    </div>
+    <div class="carousel-inner">
+        @foreach (var item in Model.Pages)
+        {
+            <div class="carousel-item @item.Active">
+                <img src="@Url.ContentUrl(item.Page.Image)" style="height: 50%; width: 100%;" />
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>@item.Page.Heading</h1>
+                        <p class="opacity-75">@Html.Raw(item.Page.Text)</p>
+                        <p><a class="btn btn-lg btn-primary" href="@item.Page.Link?.Href">@item.Page.Link?.Text</a></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

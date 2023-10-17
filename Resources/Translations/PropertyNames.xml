@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language name="English" id="en">
+	  <contenttypes>
+		  <icontentdata>
+			  <properties>
+				  <metatitle>
+					  <caption>Meta title</caption>
+					  <help>This is a meta title</help>
+				  </metatitle>
+			  </properties>
+		  </icontentdata>
+		  <startpage>
+			  <properties>
+				  <preamble>
+					  <caption>Preamble</caption>
+					  <help>This is a preamble</help>
+				  </preamble>
+			  </properties>
+		  </startpage>
+	  </contenttypes>
+  </language>
+	<language name="Svenska" id="sv">
+		<contenttypes>
+			<icontentdata>
+				<properties>
+					<metatitle>
+						<caption>Metatitel</caption>
+						<help>Det här är en metatitel</help>
+					</metatitle>
+				</properties>
+			</icontentdata>
+			<startpage>
+				<properties>
+					<preamble>
+						<caption>Ingress</caption>
+						<help>Det här är en ingress</help>
+					</preamble>
+				</properties>
+			</startpage>
+		</contenttypes>
+	</language>
+</languages>

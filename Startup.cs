@@ -1,8 +1,11 @@
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Data;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using Nackademin23.Business.Extensions;
+using Nackademin23.Models.Settings;
 
 namespace Nackademin23
 {
@@ -23,10 +26,10 @@ namespace Nackademin23
 
                 services.Configure<SchedulerOptions>(options => options.Enabled = false);
             }
-
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
+                .AddNackademin()
                 .AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Startup>();
         }
