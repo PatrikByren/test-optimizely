@@ -1,4 +1,5 @@
-﻿using static Nackademin23.Globals;
+﻿using Nackademin23.Business.Descriptor;
+using static Nackademin23.Globals;
 
 namespace Nackademin23.Models.Pages
 {
@@ -13,7 +14,7 @@ namespace Nackademin23.Models.Pages
         Include = new[] { typeof(CarouselPage) }
     )]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
-    public class ContainerPage : PageData
+    public class ContainerPage : PageData, IContainerIcon
     {
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EPiServer.Web;
+using Nackademin23.Business.Descriptor;
 using System.ComponentModel.DataAnnotations;
 using static Nackademin23.Globals;
 
@@ -10,7 +11,7 @@ namespace Nackademin23.Models.Pages
         GroupName = GroupNames.Specialized)]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
     
-    public class SettingsPage : SitePageData
+    public class SettingsPage : SitePageData, ISettingsIcon
     {
         [Display(GroupName = SystemTabNames.Content,
             Order =10)]

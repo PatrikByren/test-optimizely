@@ -2,6 +2,7 @@
 using EPiServer.Web;
 using static Nackademin23.Globals;
 using System.ComponentModel.DataAnnotations;
+using Nackademin23.Business.Descriptor;
 
 namespace Nackademin23.Models.Pages
 {
@@ -14,7 +15,7 @@ namespace Nackademin23.Models.Pages
     )]
     [AvailableContentTypes(Availability.None)]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
-    public class CarouselPage : SitePageData 
+    public class CarouselPage : SitePageData, ICarouselIcon
     {
         [Display(
             GroupName = SystemTabNames.Content,
