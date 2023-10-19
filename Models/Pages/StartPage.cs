@@ -14,7 +14,8 @@ namespace Nackademin23.Models.Pages
         Include = new[]
         {
             typeof(SettingsPage),
-            typeof(ContainerPage)
+            typeof(ContainerPage),
+            typeof(SearchPage)
         })]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
     

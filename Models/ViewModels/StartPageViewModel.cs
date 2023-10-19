@@ -6,6 +6,8 @@ namespace Nackademin23.Models.ViewModels
     {
         public StartPageViewModel(StartPage currentPage) : base(currentPage)
         {
+
         }
+        public IEnumerable<MoviePage> Movies { get; set; }
     }
 }

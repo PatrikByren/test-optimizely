@@ -1,7 +1,4 @@
 ﻿
-﻿@using Nackademin23.Models.ViewModels
-@using Nackademin23.Models.Pages
-
 
 @model IPageViewModel<SitePageData>
 
@@ -17,6 +14,9 @@
    <title></title>
 </head>
 <body>
+    <div>
+    @await Html.PartialAsync("~/Views/Shared/Partials/_Header.cshtml", Model)
+    </div>
     <div>
         @RenderBody()
     </div>

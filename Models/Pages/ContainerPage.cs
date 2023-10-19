@@ -11,7 +11,8 @@ namespace Nackademin23.Models.Pages
     )]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(CarouselPage) }
+        Include = new[] { typeof(CarouselPage),
+        typeof(MoviePage)}
     )]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
     public class ContainerPage : PageData, IContainerIcon

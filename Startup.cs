@@ -48,6 +48,10 @@ namespace Nackademin23
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute(
+                //    name: "search",
+                //    pattern: "search",
+                //    defaults: new { controller = "SearchPage", action = "Index" });
                 endpoints.MapContent();
             });
         }

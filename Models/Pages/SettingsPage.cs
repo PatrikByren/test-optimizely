@@ -16,6 +16,10 @@ namespace Nackademin23.Models.Pages
         [Display(GroupName = SystemTabNames.Content,
             Order =10)]
         public virtual PageReference MoviesContainer { get; set; }
+        [Display(GroupName = SystemTabNames.Content,
+            Order = 20)]
+        public virtual ContentReference SearchPage { get; set; }
+        //public virtual ContentReference SearchPage { get; set; }
 
     }
 }

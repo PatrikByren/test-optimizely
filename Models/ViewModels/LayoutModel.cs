@@ -6,5 +6,6 @@ namespace Nackademin23.Models.ViewModels
     {
         public StartPage StartPage { get; set; }
         public SettingsPage SettingsPage { get; set; }
+        //public SearchPage SearchPage { get; set; }
     }
 }
