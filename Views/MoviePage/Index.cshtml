@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MoviePageViewModel
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="@Model.CurrentPage.Poster" width="100%" height="100%" />
+                    <div class="card-body">
+                        <p class="card-text">@Model.CurrentPage.Title (@Model.CurrentPage.Year)</p>
+                        <p>@Model.CurrentPage.Plot</p>
+                        <p>@Model.CurrentPage.ImdbRating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>

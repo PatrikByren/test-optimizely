@@ -1,0 +1,45 @@
+﻿@model XmlSitemapViewModel
+
+
+@{
+    Layout = null;
+
+    accessor.HttpContext.Response.Clear();
+    accessor.HttpContext.Response.ContentType = "text/xml";
+
+    var stringBuilder = new StringBuilder();
+    var url = new StringBuilder();
+    var xmlversion = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    var urlsetStart = "<urlset xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\">";
+    var urlsetEnd = "</urlset>";
+
+    if (Model.Descendants != null)
+    {
+        foreach (var page in Model.Descendants)
+        {
+            var icontent = (IContent)page;
+            var externalUrl = icontent.GetExternalUrl();
+
+            if (externalUrl != null)
+            {
+                var pageUrl = new Uri(externalUrl);
+
+                if (page.LinkType == PageShortcutType.External)
+                {
+                    pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
+                }
+
+                var modDate = page.XmlSitemapDate.IsNotNullOrWhiteSpace() ? page.XmlSitemapDate :
+                page.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+
+                url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + modDate + "</lastmod></url>");
+            }
+        }
+    }
+
+    stringBuilder.Append(xmlversion);
+    stringBuilder.Append(urlsetStart);
+    stringBuilder.Append(url);
+    stringBuilder.Append(urlsetEnd);
+    await accessor.HttpContext.Response.WriteAsync(stringBuilder.ToString());
+}

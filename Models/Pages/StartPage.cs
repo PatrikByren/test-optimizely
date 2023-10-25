@@ -15,7 +15,9 @@ namespace Nackademin23.Models.Pages
         {
             typeof(SettingsPage),
             typeof(ContainerPage),
-            typeof(SearchPage)
+            typeof(SearchPage),
+            typeof(XmlSitemap),
+            typeof(FindPage)
         })]
     [ImageUrl("/gfx/page-type-thumbnail.png")]
     
@@ -26,5 +28,8 @@ namespace Nackademin23.Models.Pages
             Order = 20)]
         [AllowedTypes(typeof(CarouselPage), typeof(CarouselBlock))]
         public virtual ContentArea Carousel { get; set; }
+        [Display(GroupName = SystemTabNames.Content,
+            Order = 40)]
+        public virtual XhtmlString Text {  get; set; }
     }
 }

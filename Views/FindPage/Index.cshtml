@@ -1,0 +1,29 @@
+﻿@model FindPageViewModel
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                <input type="text" tabindex="1" name="query" value="@Model.SearchQuery" />
+                <input type="submit" tabindex="2" class="btn btn-primary my-2" value="Search" />
+            }
+        </div>
+    </div>
+</section>
+
+@if (Model.Results != null)
+{
+    <p>Your search for <i>@Model.SearchQuery</i> resulted in @Model.Results.Count() hits</p>
+    <div class="listResult">
+        <ul>
+            @foreach (var item in Model.Results)
+            {
+                <li>
+                    <h4><a href="@item.Url">@item.Title</a></h4>
+                    @item.Excerpt
+                </li>
+            }
+        </ul>
+    </div>
+}

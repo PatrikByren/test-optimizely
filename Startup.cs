@@ -1,10 +1,15 @@
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Data;
+using EPiServer.Find;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using Nackademin23.Business.Extensions;
+using Nackademin23.Business.Services;
+using Nackademin23.Business.Services.Interfaces;
+using Nackademin23.Business.TinyMce;
+using Nackademin23.Models.Pages;
 using Nackademin23.Models.Settings;
 
 namespace Nackademin23
@@ -29,9 +34,20 @@ namespace Nackademin23
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
+                .AddFind()
                 .AddNackademin()
                 .AddAdminUserRegistration()
-                .AddEmbeddedLocalization<Startup>();
+                .AddEmbeddedLocalization<Startup>()
+                .TinyMceConfiguration();
+                
+
+            services.AddSingleton<IXmlSitemapService, XmlSitemapService>();
+
+            services.Configure<FindOptions>(options =>
+            {
+                options.ServiceUrl = "https://demo04.find.episerver.net/2AeKxGXXSxIRIaoiFxErM77FgXg3yguO/";
+                options.DefaultIndex = "patrikbyren_nackademin23";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
